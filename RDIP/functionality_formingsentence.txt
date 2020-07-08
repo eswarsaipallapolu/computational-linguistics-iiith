@@ -1,0 +1,25 @@
+Forming a sentence:-
+
+*Functionalities to be done:-
+->Click on the Experiment tab.
+->select the dropdown menu(either English or Hindi).
+->The jumbled words are given to form a sentence.Each word is given as buttton.
+->The jumbled words are arranged in the proper order and then click on the 'click the correctness' of this sentence.
+->if the jumbled words are properly arranged then it displays right answer other wise it displays wrong answer.
+->if you want to reform the sentence then click on the reform sentence so again the words are reset in the jumbled order.
+->After clicking on the  check it will be checking the correctness of the sentence and if the output is 'wrong answer' then the  buttton 'Get Answers' will be visible.
+->if you click on the 'Get Answers' then the answer will be visible.
+->if you want to hide the answers then click on the 'hide answer' to hide the actual answers. 
+ 
+
+*Possible functions that can be included:-
+->ChangeClassName()
+->addEventListener()
+->GenerateWords()
+->Resetall()
+->CheckCorrectness()
+->HideText()
+->DisplayText()
+->DisplayResult()
+->GetCorrectSentence()
+->HideCoorectSentence()
