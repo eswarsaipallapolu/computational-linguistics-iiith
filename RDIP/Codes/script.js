@@ -67,9 +67,18 @@ function selectlang() {
         document.getElementById("ans").innerHTML = spbutton1.trim();
         return;
     }
-
-
-
-
-
+}
+var finishedsentence = "";
+var wordcount = 0;
+function display(id, value) {
+    document.getElementById("demo3").innerHTML = "Formed Sentence (after selecting words):";
+    finishedsentence += value + " ";
+    document.getElementById("demo4").innerHTML = finishedsentence;
+    document.getElementById(id).style.display = "none";
+    document.getElementById("demo6").innerHTML = "<center><button id='reform' onclick='resets(initialvalues)'>Re-form the sentence</button></center>"
+    wordcount++;
+    if (wordcount == buttoncount) {
+        document.getElementById("demo7").innerHTML = "<center><button id='check' onclick='checkfunc()'>Check the correctness of sentence</button></center>"
+    }
+    return true;
 }
