@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="en">
+<meta charset="UTF-8">
     <head>
         <title class="custom" id="page-title">Virtual Labs</title>
         <style>
@@ -164,29 +165,25 @@ p {
                     <div>
                         <!--dropdown for language selection-->
                     <p>Experiment</p>
-                    <select id="select-lang" onchange="selectLanguage();">
+                    <select id="select-lang" onchange="selectlang()">
                             <option value="def" >---Select Language---</option>
-                            <option value="eng" >English</option>
-                            <option value="hindi">Hindi</option>
+                            <option value="english" onclick="selectlang()">English</option>
+                            <option value="hindi" onclick="selectlang()">Hindi</option>
                     </select>
                     </div>
-                   
-
-                    <div class="general-text">
-                        <!-- to show message "Form a sentence (Declarative or Interrogative or any other type) from the given words-->
-                        <p id="sentence-intro"></p>
-                        <!--(select the buttons in proper order)"-->
-                        <span id="button-select-intro" style="margin-left:17%;"></span>   
-                    </div>
-                    <div class="jumbled-words">
-
-                    </div>
-
-
+                    <h4 id="d1"></h4>
+                    <h4 id="d2"></h4>
+                    <h4 id="demo3"></h4>
+                    <h4 id="demo4"></h4>
+                    <h4 id="demo5"></h4>
+                    <h4 id="demo6"></h4>
+                    <h4 id="demo7"></h4>
+                    <h4 id="hello"></h4>
+                    <h4 id="ans"></h4>
+                    <script src="script.js"></script>
                 </div>
             </div>
             
         </div>
-        <script src="script.js"></script>
     </body>
 </html>
