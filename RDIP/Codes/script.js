@@ -68,8 +68,11 @@ function selectlang() {
         return;
     }
 }
-var finishedsentence = "";
 var wordcount = 0;
+var buttoncount = 0;
+var finishedsentence = "";
+var originalsentence = "";
+var initialvalues = "";
 function display(id, value) {
     document.getElementById("demo3").innerHTML = "Formed Sentence (after selecting words):";
     finishedsentence += value + " ";
@@ -80,5 +83,20 @@ function display(id, value) {
     if (wordcount == buttoncount) {
         document.getElementById("demo7").innerHTML = "<center><button id='check' onclick='checkfunc()'>Check the correctness of sentence</button></center>"
     }
+    return true;
+}
+function resets(initialvalues) {
+    document.getElementById("demo3").innerHTML = "";
+    document.getElementById("demo4").innerHTML = "";
+    document.getElementById("demo5").innerHTML = "";
+    document.getElementById("demo6").innerHTML = "";
+    document.getElementById("demo7").innerHTML = "";
+    document.getElementById("demo8").innerHTML = "";
+    document.getElementById("demo9").innerHTML = "";
+    document.getElementById("demo10").innerHTML = "";
+    wordcount = 0;
+    finishedsentence = "";
+    document.getElementById("ans").innerHTML = initialvalues;
+    
     return true;
 }
