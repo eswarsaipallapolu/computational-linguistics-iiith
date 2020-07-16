@@ -1,0 +1,12 @@
+Functionalities that are been inside the experiment:
+
+--> On beginning the experiment select a corpus from corpus 1, corpus 2, and corpus 3 from dropdown.
+--> After selecting one of them, we get single paragraph from which we have to search and find the no.of tokens-(total number of words) and number of types-(of unique words).
+--> fill them in the text provided text boxes.
+--> On clicking the submit button, if both the entered values are correct,then they will be displayed in green and we can ensure that are right -"Right Answer".
+--> If any one of the value or both of them are wrong, then the wrong input will be displayed in red and we can ensure it as a wrong input-"Wrong Answer".
+--> If we get a text of "Right Answer", then another button "Continue" will be displayed. When we click this button, we will be asked to type no.of new types(different root words) in the space given and click on "Submit" to know the answer.
+--> If the entered value is correct then it will be displayed in green with text color-"Right Answer" and the experiment is completed by that.
+--> If the value entered is not correct then it will be  displayed in red with text color- "Wrong Answer".
+
+NOTE:- Red and Green colors are for indication of correct inputs are correct answers.
