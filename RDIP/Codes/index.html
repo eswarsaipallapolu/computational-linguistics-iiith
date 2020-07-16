@@ -1,10 +1,13 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <meta charset="UTF-8">
-    <head>
-        <title class="custom" id="page-title">Virtual Labs</title>
-        <style>
-			html {
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src="script.js"></script>
+<head>
+<title class="custom" id="page-title">Virtual Labs</title>
+<style>
+html 
+{
     height: 100%;
 }
 body{
@@ -50,31 +53,17 @@ p {
  }
  .content-head{
      background-color: #c2d7da;
-     
-     
      margin: 0% -0.3%; 
      position: fixed;  
      right:17.5%;
      left:16.3%;
-     height: 100%;
+     height: auto;
  }
  .content-head p{
     color: rgb(66, 62, 62);
-    font-size: 250%;
+    font-size: 150%;
     margin:0%;
- }
-
- 
- .content-body{
-     background-color: white;
-     width: 95%;
-     padding:1%;
-      margin: 0 auto;
-      
-      position: relative;
-     
- }
- 
+ } 
  .links{
      display: inline-block;
      width: 13%;
@@ -102,48 +91,66 @@ p {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 120%;
  }
- #active{
-    background-color: rgb(16, 16, 119);
-    color: white;
- }
- select{
-     margin:5% 40%;
-     padding: 0.3%;
-     
- }
- .general-text{
-    margin: 0% 18%;
-    padding:0%;
- }
- #d1 
- {
-      text-align: center;
-      color: darkblue;
-      font-style: oblique;
-      font-size: medium;
- }
- #d2
- {
-      text-align: center;
-      color: blue;
-      font-style: oblique;
-      font-size: medium;
- }
- #ans,#ans1,#demo3,#demo4,#demo5,#demo6,#demo7
- {
-     text-align: center;
- }
- #refom
-  {
-     margin: 0;
-     position: absolute;
-     left: 35%;
-  }
-		</style>
-        <link class="custom" href="../../../src/lab/images/favicon.png" rel="shortcut icon"/>
-
-    </head>
-    <body>
+ h1
+    {
+        text-align: center;
+        background-color: skyblue;
+        color: orangered;
+        font-size:120%;
+    }
+    #droplang
+    {
+        margin-left: 45%;   
+    }
+    #lang
+    {
+        background-color:lightgrey;
+    }
+    #demo
+    {
+        text-align: center;
+        text-transform: capitalize;
+        color:darkblue;
+    }
+    #demo1
+    {
+        text-align: center;
+        text-transform: capitalize;
+        color:blue;
+    }
+    #demo3
+    {
+        text-align: center;
+        text-transform: capitalize;
+        color:blue;
+    }
+    #demo4
+    {
+        text-align: center;
+        text-transform: capitalize;
+        color:black;
+    }
+    #demo9
+    {
+        text-transform: uppercase;
+        color: red;
+        text-align:center;
+    }
+    #demo11 
+    {
+        text-align:center;
+        color:green;
+    }
+    #ans
+    {
+        text-align: center;
+        color:greenyellow;
+    }
+ 
+</style>
+<link class="custom" href="../../../src/lab/images/favicon.png" rel="shortcut icon"/>
+</head>
+<body>
         <div class="container content">
             <img src="../../Libraries/images/logo-img.jpg" alt="Virtual-Labs-IIIT-HYDERABAD" width="100%" >
             <div class="lab-name">
@@ -176,41 +183,30 @@ p {
                     <div class="links" >                          
                         <a href="#"><img src="../../Libraries/images/quizzes.jpg"><p class="hov">QUIZZES</p></a>
                     </div>
-
-
-
-
-                    <!----------------------------------------Experiment Tab Body---------------------------------------------------->
-
-                    <div>
-                        <!--dropdown for language selection-->
-                    <p>Experiment</p>
-                    <select id="select-lang" onchange="selectlang()">
-                            <option value="def" >---Select Language---</option>
-                            <option value="english" onclick="selectlang()">English</option>
-                            <option value="hindi" onclick="selectlang()">Hindi</option>
+                    <h1>Experiment</h1>
+                    <div id="droplang">
+                    <select id="lang" onchange="sentencefunc()">
+                    <option value="null">---Select Language---</option>
+                    <option value="english" onclick="sentencefunc()">English</option>
+                    <option value="hindi" onclick="sentencefunc()">Hindi</option>
                     </select>
                     </div>
-                    <br>
-                    <p id="d1"></p>
-                    <p id="d2"></p><br>
-                    <br>
+                    <h3 id="demo"></h3>
+                    <h3 id="demo1"></h3>
                     <div id="ans">
                     </div>
-                    <br>
                     <div id="display">
-                    <p id="demo3"></p>
-                    <p id="demo4"></p>
+                    <h3 id="demo3"></h3>
+                    <h3 id="demo4"></h3>
                     </div>
-                    <div id="reform">
-                    <p id="demo5"></p>
-                    <p id="demo6"></p>
-                    <p id="demo7"></p>
-                    <p id="demo8"></p>
-                    <p id="demo9"></p>
-                    <p id="demo10"></p>
+                    <div>
+                    <h3 id="demo6"></h3>
+                    <h3 id="demo7"></h3> 
+                    <h3 id="demo8"></h3>
+                    <h3 id="demo9"></h3>
+                    <h3 id="demo10"></h3>
+                    <h3 id="demo11"></h3>
                     </div>
-                    <script src="script.js"></script>
                 </div>
             </div>
             
