@@ -72,17 +72,22 @@ function New() {
     document.getElementById('continuebutton').innerHTML = "<br><center><button onclick='stems()'>Submit</button></center>";
 }
 function stems() {
+    var userstemValue = parseInt(document.getElementById('newtype').value);
     var j = 0, k;
     while (j != stemarray.length) {
         k = stemarray[j];
         if (bae[stemarray.indexOf(k)] == 0) {
             bae[stemarray.indexOf(k)] = 1;
             stemwordco++;
-            console.log(k);
+            //console.log(k);
         }
         j++;
     }
     console.log(stemwordco);
+    if (userstemValue === stemwordco)
+        console.log('right');
+    else
+        console.log('wrong');
 }
 function stemword(word) {
     var wordstemm = new Snowball('English');
