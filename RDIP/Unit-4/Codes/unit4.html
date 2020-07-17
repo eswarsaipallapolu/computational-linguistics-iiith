@@ -104,6 +104,36 @@ p {
    color:darkviolet;
    margin-left:43%;
 }
+ #text{
+   padding-top : 20px;
+   font-family : Lucida Sans Unicode;
+   font-size : 15px;
+   line-height : 1.5;
+}
+ #tabletext {
+   padding-top : 24px;
+   font-family : Lucida Sans Unicode;
+   font-size : 16px;
+   line-height : 1.6;
+}
+table {
+   border-collapse : collapse;
+   width : auto; 
+   margin : auto;
+   border-width : 10px;
+}
+td {
+   padding : 8px;
+   height : 30px;
+   border : 1px solid #ddd;
+}
+#token, #type {
+   padding : 3px;
+   width : 65px;
+}
+button{
+   font-size : 15px;
+}
 </style>
 
         <title>Virtual Labs</title>
@@ -144,12 +174,17 @@ p {
                     </div>
                     
                     <h1>Experiment</h1>
-	                    <select id="dropdown">
+	                    <select id="dropdown" onchange="corpusfun()">
 	                        <option id="default" value="Select a corpus">---Select a corpus---</option>
 	                        <option id="cor1" value="Corpus1">Corpus 1</option>
    	                        <option id="cor2" value="Corpus2">Corpus 2</option>
 	                        <option id="cor3" value="Corpus3">Corpus 3</option>
     	                </select>
-
+                    <p id="text"></p>
+	                <p id="tabletext"></p>
+	                <p id="submitbutton"></p>	
+</div>
+</div>
+</div>
 </body>
 </html> 
