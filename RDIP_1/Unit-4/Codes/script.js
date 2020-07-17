@@ -39,7 +39,7 @@ function Val() {
             array[uniqword.indexOf(k)] = 1;
             uniqwordcou++;
             stemarray[i] = stemword(k);
-            bae[j] = 0;
+            bae[i] = 0;
             i++;
         }
         j++;
@@ -72,10 +72,17 @@ function New() {
     document.getElementById('continuebutton').innerHTML = "<br><center><button onclick='stems()'>Submit</button></center>";
 }
 function stems() {
-    var stemm = new Snowball('English');
-    stemm.setCurrent('abbreviations');
-    stemm.stem();
-    console.log(stemm.getCurrent());
+    var j = 0, k;
+    while (j != stemarray.length) {
+        k = stemarray[j];
+        if (bae[stemarray.indexOf(k)] == 0) {
+            bae[stemarray.indexOf(k)] = 1;
+            stemwordco++;
+            console.log(k);
+        }
+        j++;
+    }
+    console.log(stemwordco);
 }
 function stemword(word) {
     var wordstemm = new Snowball('English');
