@@ -42,13 +42,13 @@ function Val() {
     var took = parseInt(document.getElementById('token').value);
     var typ = parseInt(document.getElementById('type').value);
     if (war == took)
-        document.getElementById("token").style.backgroundColor = "green";
+        document.getElementById("token").style.backgroundColor = "lightgreen";
     else{
         e1=1;
         document.getElementById("token").style.backgroundColor="red";
     }
     if (uniqwordcou = typ)
-        document.getElementById("type").style.backgroundColor = "green";
+        document.getElementById("type").style.backgroundColor = "lightgreen";
     else {
         document.getElementById("type").style.backgroundColor = "red";
         e2 = 1;
@@ -56,8 +56,13 @@ function Val() {
     if (e1 == 1 || e2 == 1)
         document.getElementById('position').innerHTML = "<br><center><p style='color:red'>Wrong Answer</p></center>";
     else {
-        document.getElementById('position').innerHTML = "<br><center><p style='color:green'>Right Answer</p></center>";
-        document.getElementById('continuebutton').innerHTML = "<br><center><button>Continue</button></center>";
+        document.getElementById('position').innerHTML = "<br><center><p style='color:darkgreen'>Right Answer</p></center>";
+        document.getElementById('continuebutton').innerHTML = "<br><center><button onclick='New()'>Continue</button></center>";
     }
 
+}
+function New() {
+    document.getElementById('submitbutton').innerHTML = "<br><center><p id='stmt'>Now, consider all the tokens with the same 'root' word to be of the same type. Recalculate the number of types.</p></center>";
+    document.getElementById('position').innerHTML = "<center><p id='newtext'>#new types:</p><input type='text' id='newtype' value=''/></center>";
+    document.getElementById('continuebutton').innerHTML = "<br><center><button>Submit</button></center>";
 }
