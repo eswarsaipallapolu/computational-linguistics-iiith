@@ -64,5 +64,11 @@ function Val() {
 function New() {
     document.getElementById('submitbutton').innerHTML = "<br><center><p id='stmt'>Now, consider all the tokens with the same 'root' word to be of the same type. Recalculate the number of types.</p></center>";
     document.getElementById('position').innerHTML = "<center><p id='newtext'>#new types:</p><input type='text' id='newtype' value=''/></center>";
-    document.getElementById('continuebutton').innerHTML = "<br><center><button>Submit</button></center>";
+    document.getElementById('continuebutton').innerHTML = "<br><center><button onclick='stems()'>Submit</button></center>";
+}
+function stems() {
+    var stemm = new Snowball('English');
+    stemm.setCurrent('abbreviations');
+    stemm.stem();
+    console.log(stemm.getCurrent());
 }
