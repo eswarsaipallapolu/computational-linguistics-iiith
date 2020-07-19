@@ -1,0 +1,11 @@
+Functionalities:
+
+--> Language dropdown option: From the this drop down option there are two available languages(ENGLISH and HINDI),We have to select a language from it.
+--> Sentence dropdown option: After selection of a language, then we have to select a sentence from a dropdown option given below.
+--> After selection of a sentence, a table with seperate rows and columns for each word with a seperate dropdown option will be displayed.
+--> Then select the parts of speech for each and very word and then, click submit to check your answers.
+--> If all your submission were right, then a seperate green tick appears on corresponding rows for each word.
+--> If some of the answer or all of the answers are about to be wrong then, a red cross symbol will appears on corresponding rows for ecah word that is wrong
+--> Here, the "Get Answer" button will be displayed for futher procedure.
+--> On clicking "Get Answer", last column for each and every word will be displayed with all correct answers and then, this button is changed to "Hide Answer".
+--> The "Hide Answer" button is a toggle button, that is when you click on this button,this will be to changed to "Get Answer" and the respective answers were hidden again.
