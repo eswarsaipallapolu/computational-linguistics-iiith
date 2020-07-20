@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<style>
+html 
+{
+    height: 100%;
+    overflow:scroll;
+}
+body{
+    background-color:lightgoldenrodyellow;
+    padding-top: 0%;
+    overflow: hidden;
+}
+
+
+p {
+    font-size: 16px;
+}
+h1 
+{
+    text-align:center;
+    background-color:lightgray;
+    font-family:'Times New Roman';
+        
+    }
+
+ h2
+    {
+        text-align: center;
+        background-color: skyblue;
+        color: orangered;
+        font-family:Calibri;
+        
+    }
+#dropdown
+{
+   height : 22px;
+   font-family : arial;
+   font-size : 17px;
+   margin-bottom : 20px;
+   background-color:lightgreen; 
+}
+#dropdown2 
+{
+   height : 22px;
+   font-family : arial;
+   font-size : 17px;
+   margin-bottom : 20px;
+   background-color:lightgray;
+}
+
+</style>
+<head>
+	<meta charset = "UTF-8">
+        <title>Virtual Labs Experiment</title>
+	<link rel="icon" href="..\..\.\RDIP_2\..\src\.\themes\maroon-grid\images\logo.jpg" type="image/x-icon">
+	<script src = "script.js"></script>
+</head>
+
+<body>
+    <h1>Coarse-grained POS Tagging</h1>
+	<h2>Experiment</h2>
+    <center><select id="dropdown" onchange = "selection()">
+	      <option id="default" value="Select Language">---Select Language---</option>
+	      <option id="english" value="English">English</option>
+   	      <option id="hindi" value="Hindi">Hindi</option>
+	</select></center>
+
+	<p id="dropdown1"></p>
+
+
+</body>
+</html> 
