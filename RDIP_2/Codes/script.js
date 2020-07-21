@@ -1,7 +1,7 @@
 var ENGLISH = ['The child liked the chocolate','She was stopped by the bravest knight','Mary baked a cake for his birthday','She decorated the cake carefully','Mary wore a dress with polka dots'];
 var HINDI = ['राम ने सीता के लिए फल तोड़ा।', 'छोटे बच्चे पाठशाला जल्दी आयेंगे।', 'मेहनत का फल मीठा होता है।', 'वाह! वह खूबसूरत है।', 'पेड़ से पत्ते गिर गए।'];
 var hindianswers = [["Noun", "Postposition", "Noun", "Postposition", "Postposition", "Noun", "Verb"], ["Adjective", "Noun", "Noun", "Adverb", "Verb"], ["Noun", "Postposition", "Noun", "Adjective", "Verb", "Verb"], ["Interjection", "Pronoun", "Adjective", "Verb"], ["Noun", "Postposition", "Noun", "Verb", "Verb"]];
-var sentences = "", postdrop, postvalue, sent= "", engishanswer = [], index;
+var sentences = "", postdrop, postvalue, sent= "", engishanswer = [], index,fun=0;
 
 function selection() {
     if (document.getElementById('default').selected)
@@ -11,6 +11,7 @@ function selection() {
         document.getElementById('text').innerHTML = "";
         document.getElementById('post').innerHTML = "";
         document.getElementById('submitbutton').innerHTML = "";
+        document.getElementById('getbutton').innerHTML = "";
         postvalue = [];
         if (document.getElementById('english').selected) {
             document.getElementById('e1').innerHTML = ENGLISH[0];
@@ -127,16 +128,22 @@ function postfunction() {
         for (var j = 0; j < sentence.length; j++) {
             if (postvalue[j] == englishanswer[j])
                 document.getElementById(idarray[j]).innerHTML = '<center><img src="https://png.vector.me/files/images/1/2/123189/green_tick_clip_art.jpg" width="30" height="30"></center>';
-            else
+            else {
+                fun = 1;
                 document.getElementById(idarray[j]).innerHTML = '<center><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGsrDscW0GQmdjrKLj2ahgZC_xTMRq4NUMRdka4ii5cNlQYlo&s" width="30" height="30"></center>';
+            }
         }
     }
     else if (document.getElementById('hindi').selected) {
         for (var j = 0; j < sentence.length; j++) {
             if (postvalue[j] == hindianswers[index][j])
                 document.getElementById(idarray[j]).innerHTML = '<center><img src="https://png.vector.me/files/images/1/2/123189/green_tick_clip_art.jpg" width="30" height="30"></center>';
-            else
+            else {
+                fun = 1;
                 document.getElementById(idarray[j]).innerHTML = '<center><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGsrDscW0GQmdjrKLj2ahgZC_xTMRq4NUMRdka4ii5cNlQYlo&s" width="30" height="30"></center>';
+            }
         }
     }
+    if (fun == 1)
+        document.getElementById('getbutton').innerHTML = '<center><button>Get Answer</button></center>';
 }
