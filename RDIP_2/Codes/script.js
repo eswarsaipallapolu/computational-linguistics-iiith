@@ -1,6 +1,6 @@
 var ENGLISH = ['The child liked the chocolate','She was stopped by the bravest knight','Mary baked a cake for his birthday','She decorated the cake carefully','Mary wore a dress with polka dots'];
 var HINDI = ['राम ने सीता के लिए फल तोड़ा।', 'छोटे बच्चे पाठशाला जल्दी आयेंगे।', 'मेहनत का फल मीठा होता है।', 'वाह! वह खूबसूरत है।', 'पेड़ से पत्ते गिर गए।'];
-var sentences = "",postdrop;
+var sentences = "",postdrop,postvalue;
 
 function selection() {
     if (document.getElementById('default').selected)
@@ -9,6 +9,8 @@ function selection() {
         document.getElementById('dropdown1').innerHTML = "<center><select id='dropdown2' onchange='disk()'><option id='default1' value='Select a sentence'>---Select a sentence---</option><option id='e1'></option><option id='e2'></option><option id='e3'></option><option id='e4'></option><option id='e5'></option></select></center>";
         document.getElementById('text').innerHTML = "";
         document.getElementById('post').innerHTML = "";
+        document.getElementById('submitbutton').innerHTML = "";
+        postvalue = [];
         if (document.getElementById('english').selected) {
             document.getElementById('e1').innerHTML = ENGLISH[0];
             document.getElementById('e2').innerHTML = ENGLISH[1];
@@ -26,7 +28,7 @@ function selection() {
     }
 }
 function disk() {
-    sentence = "";
+    sentence = "",postvalue=[];
     document.getElementById('text').innerHTML = "<center><i>Select the POS tag for corresponding words</i></center>";
     if (document.getElementById('english').selected) {
         if (document.getElementById('e1').selected)
@@ -58,8 +60,30 @@ function disk() {
     }
     sentence = sentence.split(" ");
     var column = "<tr id='rowhead' style='color:brown'><td>LEXICON</td><td>POS</td><td></td><td></td></tr>";
-    for (var j = 0; j < sentence.length; j++)
-        column = column + "<tr id='id" + j + "'><td>" + sentence[j] + "</td><td><select id='postdropdown" + j + "' class='postdropdown'>" + postdrop + "</select></td><td></td><td></td></tr>";
+    for (var j = 0; j < sentence.length; j++) {
+        column = column + "<tr id='id" + j + "'><td>" + sentence[j] + "</td><td><select id='postdropdown" + j + "' class='postdropdown' onchange='postselection(this.id,this.value)'>" + postdrop + "</select></td><td></td><td></td></tr>";
+        postvalue[j] = "Noun";
+    }
     document.getElementById('post').innerHTML = column.trim();
+    document.getElementById('submitbutton').innerHTML = "<center><button onclick='userpostvalues()'>Submit</button></center>";
+}	
+function postselection(id, value) {
+    if(id==='postdropdown0')
+        postvalue[0]=value;
+    else if(id==='postdropdown1')
+        postvalue[1] = value;
+    else if(id==='postdropdown2')
+        postvalue[2] = value;
+    else if(id==='postdropdown3')
+        postvalue[3] = value;
+    else if(id==='postdropdown4')
+        postvalue[4] = value;
+    else if(id==='postdropdown5')
+        postvalue[5] = value;
+    else if(id==='postdropdown6')
+        postvalue[6] = value;
 
+}
+function userpostvalues() {
+    console.log(postvalue, postvalue.length);
 }
