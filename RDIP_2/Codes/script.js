@@ -1,9 +1,9 @@
-var ENGLISH = ['The child liked the chocolate','She was stopped by the bravest knight','Mary baked a cake for his birthday','She decorated the cake carefully','Mary wore a dress with polka dots'];
-var HINDI = ['राम ने सीता के लिए फल तोड़ा।', 'छोटे बच्चे पाठशाला जल्दी आयेंगे।', 'मेहनत का फल मीठा होता है।', 'वाह! वह खूबसूरत है।', 'पेड़ से पत्ते गिर गए।'];
-var hindianswers = [["Noun", "Postposition", "Noun", "Postposition", "Postposition", "Noun", "Verb"], ["Adjective", "Noun", "Noun", "Adverb", "Verb"], ["Noun", "Postposition", "Noun", "Adjective", "Verb", "Verb"], ["Interjection", "Pronoun", "Adjective", "Verb"], ["Noun", "Postposition", "Noun", "Verb", "Verb"]];
-var sentences = "", postdrop, postvalue, englishanswer = [], index, sent = "",fun=0;
+var ENGLISH = ['The child liked the chocolate','She was stopped by the bravest knight','Mary baked a cake for his birthday','She decorated the cake carefully','Mary wore a dress with polka dots'];//All English Sentences are stored in an array here
+var HINDI = ['राम ने सीता के लिए फल तोड़ा।', 'छोटे बच्चे पाठशाला जल्दी आयेंगे।', 'मेहनत का फल मीठा होता है।', 'वाह! वह खूबसूरत है।', 'पेड़ से पत्ते गिर गए।'];//All Hindi sentences are been stored in an array
+var hindianswers = [["Noun", "Postposition", "Noun", "Postposition", "Postposition", "Noun", "Verb"], ["Adjective", "Noun", "Noun", "Adverb", "Verb"], ["Noun", "Postposition", "Noun", "Adjective", "Verb", "Verb"], ["Interjection", "Pronoun", "Adjective", "Verb"], ["Noun", "Postposition", "Noun", "Verb", "Verb"]];//These are the answers for hindi sentence
+var sentences = "", postdrop, postvalue, englishanswer = [], index, sent = "",fun=0;  //These are some of the variables and arrays for procedure
 
-function selection() {
+function selection() {//This is function for first drop down in order to select the language and access further drop down option with sentences
     if (document.getElementById('default').selected)
         alert('Please select the given Languages');
     else {
@@ -29,7 +29,7 @@ function selection() {
         }
     }
 }
-function disk() {
+function disk() {//This disk() function is used to create a table and label it with given details by SERC
     sentence = "", postvalue = [], sent = "", englishanswer = [];
     document.getElementById('text').innerHTML = "<center><i>Select the POS tag for corresponding words</i></center>";
     if (document.getElementById('english').selected) {
@@ -46,6 +46,7 @@ function disk() {
         sent = sentence;
         sentence = sentence.replace(".","");
         postdrop = "<option id='pos1' value='Noun'>Noun</option><option id='pos2' value='Pronoun'>Pronoun</option><option id='pos3' value='Verb'>Verb</option><option id='pos4' value='Adjective'>Adjective</option><option id='pos5' value='Adverb'>Adverb</option><option id='pos6' value='Determiner'>Determiner</option><option id='pos7' value='Preposition'>Preposition</option><option id='pos8' value='Conjunction'>Conjunction</option><option id='pos9' value='Interjection'>Interjection</option>";
+        //This is for the drop down of answers that are to be selected from the table for experiment to be done for English sentence 
     }
     else if (document.getElementById('hindi').selected) {
         if (document.getElementById('e1').selected){
@@ -71,17 +72,18 @@ function disk() {
         sent = sentence;
         sentence = sentence.replace("।","");
         postdrop = "<option id='pos1' value='Noun'>Noun</option><option id='pos2' value='Pronoun'>Pronoun</option><option id='pos3' value='Verb'>Verb</option><option id='pos4' value='Adjective'>Adjective</option><option id='pos5' value='Adverb'>Adverb</option><option id='pos6' value='Postposition'>Postposition</option><option id='pos7' value='Conjunction'>Conjunction</option><option id='pos8' value='Interjection'>Interjection</option>";
+        //This is for the drop down of answers that are to be selected from with in the tablefor experiment to be done for Hindi sentences 
     }
     sentence = sentence.split(" ");
-    var column = "<tr id='rowhead' style='color:brown'><td>LEXICON</td><td>POS</td><td>Right or Wrong</td><td>Answers</td></tr>";
+    var column = "<tr id='rowhead' style='color:brown'><td>LEXICON</td><td>POS</td><td>Right or Wrong</td><td>Answers</td></tr>";//Column names with table creation
     for (var j = 0; j < sentence.length; j++) {
         column = column + "<tr id='id" + j + "'><td>" + sentence[j] + "</td><td><select id='postdropdown" + j + "' class='postdropdown' onchange='postselection(this.id,this.value)'>" + postdrop + "</select></td><td  id='img" + j + "'></td><td id='ans" + j + "'></td></tr>";
         postvalue[j] = "Noun";
     }
     document.getElementById('post').innerHTML = column.trim();
-    document.getElementById('submitbutton').innerHTML = "<center><button onclick='userpostvalues()'>Submit</button></center>";
+    document.getElementById('submitbutton').innerHTML = "<center><button onclick='userpostvalues()'>Submit</button></center>";//On clicking Submit button it is going to call another function that is userpostvalues()
 }	
-function postselection(id, value) {
+function postselection(id, value) {//Function creation and functionality added to get values
     if(id==='postdropdown0')
         postvalue[0]=value;
     else if(id==='postdropdown1')
@@ -102,7 +104,7 @@ function userpostvalues() {
     console.log(postvalue, postvalue.length);
     postfunction();
 }
-function postfunction() {
+function postfunction() {//This function is used for determining the correct answers for the certain word
     var idarray = ['img0', 'img1', 'img2', 'img3', 'img4', 'img5', 'img6'];
     if (document.getElementById('english').selected) {
         for (var j = 0; j < sentence.length; j++) {
@@ -125,7 +127,7 @@ function postfunction() {
                 englishanswer[j] = "Determiner";
             console.log(englishanswer);
         }
-        for (var j = 0; j < sentence.length; j++) {
+        for (var j = 0; j < sentence.length; j++) {//This is for right symbol or wrong symbol included in it
             if (postvalue[j] == englishanswer[j])
                 document.getElementById(idarray[j]).innerHTML = '<center><img src="https://png.vector.me/files/images/1/2/123189/green_tick_clip_art.jpg" width="30" height="30"></center>';
             else {
@@ -159,11 +161,11 @@ function getanswer()
         for (var j = 0; j < sentence.length; j++)
             document.getElementById(answerid[j]).innerHTML = hindianswers[index][j];
     }
-    document.getElementById('getbutton').innerHTML = '<center><button onclick="hideanswer()">Hide Answer</button></center>'
+    document.getElementById('getbutton').innerHTML = '<center><button onclick="hideanswer()">Hide Answer</button></center>'//On clicking on Hide Answer button we are going to call hideanswer() function
 }
-function hideanswer() {
+function hideanswer() {//This is function with functionality of hiding the answers from the column specified
     var answerid = ['ans0', 'ans1', 'ans2', 'ans3', 'ans4', 'ans5', 'ans6'];
     for (var j = 0; j < sentence.length; j++)
         document.getElementById(answerid[j]).innerHTML = "";
-    document.getElementById('getbutton').innerHTML = '<center><button onclick="getanswer()">Get Answer</button></center>'
+    document.getElementById('getbutton').innerHTML = '<center><button onclick="getanswer()">Get Answer</button></center>'//On clicking the Get Answer again we are calling the getanswer() function for displaying of correct answer for the experiment
 }
