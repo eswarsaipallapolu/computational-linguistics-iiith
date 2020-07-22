@@ -159,4 +159,11 @@ function getanswer()
         for (var j = 0; j < sentence.length; j++)
             document.getElementById(answerid[j]).innerHTML = hindianswers[index][j];
     }
+    document.getElementById('getbutton').innerHTML = '<center><button onclick="hideanswer()">Hide Answer</button></center>'
+}
+function hideanswer() {
+    var answerid = ['ans0', 'ans1', 'ans2', 'ans3', 'ans4', 'ans5', 'ans6'];
+    for (var j = 0; j < sentence.length; j++)
+        document.getElementById(answerid[j]).innerHTML = "";
+    document.getElementById('getbutton').innerHTML = '<center><button onclick="getanswer()">Get Answer</button></center>'
 }
