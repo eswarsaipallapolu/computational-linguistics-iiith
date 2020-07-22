@@ -1,7 +1,7 @@
 var ENGLISH = ['The child liked the chocolate','She was stopped by the bravest knight','Mary baked a cake for his birthday','She decorated the cake carefully','Mary wore a dress with polka dots'];
 var HINDI = ['राम ने सीता के लिए फल तोड़ा।', 'छोटे बच्चे पाठशाला जल्दी आयेंगे।', 'मेहनत का फल मीठा होता है।', 'वाह! वह खूबसूरत है।', 'पेड़ से पत्ते गिर गए।'];
 var hindianswers = [["Noun", "Postposition", "Noun", "Postposition", "Postposition", "Noun", "Verb"], ["Adjective", "Noun", "Noun", "Adverb", "Verb"], ["Noun", "Postposition", "Noun", "Adjective", "Verb", "Verb"], ["Interjection", "Pronoun", "Adjective", "Verb"], ["Noun", "Postposition", "Noun", "Verb", "Verb"]];
-var sentences = "", postdrop, postvalue, sent= "", engishanswer = [], index,fun=0;
+var sentences = "", postdrop, postvalue, englishanswer = [], index, sent = "",fun=0;
 
 function selection() {
     if (document.getElementById('default').selected)
@@ -75,7 +75,7 @@ function disk() {
     sentence = sentence.split(" ");
     var column = "<tr id='rowhead' style='color:brown'><td>LEXICON</td><td>POS</td><td>Right or Wrong</td><td>Answers</td></tr>";
     for (var j = 0; j < sentence.length; j++) {
-        column = column + "<tr id='id" + j + "'><td>" + sentence[j] + "</td><td><select id='postdropdown" + j + "' class='postdropdown' onchange='postselection(this.id,this.value)'>" + postdrop + "</select></td><td  id='img" + j + "'></td><td></td></tr>";
+        column = column + "<tr id='id" + j + "'><td>" + sentence[j] + "</td><td><select id='postdropdown" + j + "' class='postdropdown' onchange='postselection(this.id,this.value)'>" + postdrop + "</select></td><td  id='img" + j + "'></td><td id='ans" + j + "'></td></tr>";
         postvalue[j] = "Noun";
     }
     document.getElementById('post').innerHTML = column.trim();
@@ -146,4 +146,17 @@ function postfunction() {
     }
     if (fun == 1)
         document.getElementById('getbutton').innerHTML = '<center><button>Get Answer</button></center>';
+        document.getElementById('getbutton').innerHTML = '<center><button onclick="getanswer()">Get Answer</button></center>';
+}
+function getanswer()
+{
+    var answerid = ['ans0', 'ans1', 'ans2', 'ans3', 'ans4', 'ans5', 'ans6'];
+    if (document.getElementById('english').selected) {
+        for (var j = 0; j < sentence.length; j++)
+            document.getElementById(answerid[j]).innerHTML = englishanswer[j];
+    }
+    else if (document.getElementById('hindi').selected) {
+        for (var j = 0; j < sentence.length; j++)
+            document.getElementById(answerid[j]).innerHTML = hindianswers[index][j];
+    }
 }
